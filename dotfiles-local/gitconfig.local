@@ -30,7 +30,7 @@
   branch          = auto
   interactive     = auto
 [commit]
-	gpgsign = true
+  gpgsign = true
 [core]
   editor          = nvim
   excludesfile    = ~/.gitignore
@@ -49,5 +49,5 @@
   default         = current
 [gpg]
   program = gpg2
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
 
