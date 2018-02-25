@@ -32,3 +32,12 @@ syntax on
 " the plugins.
 let mapleader=","
 
+" start NERDTree when vim starts, dont use vim . to start vim though
+" also swp to non-NERDTree window
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * wincmd p
+" set bind for NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" Close vim if only open window is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

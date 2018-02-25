@@ -13,7 +13,7 @@ function cs()
 alias todo='$EDITOR ~/.todo'
 
 # General
-alias v='vim .'
+# alias v='vim .'
 alias tree="tree -C"
 alias use="/bin/ls -1A | tr '\n' '\0' | xargs -0 du -sk | sort -n" # list total disk usage for current folder contents
 alias which="which -a"
