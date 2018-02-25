@@ -31,13 +31,22 @@ syntax on
 " The mapleader has to be set before vundle starts loading all
 " the plugins.
 let mapleader=","
+let g:rspec_runner = "os_x_iterm"
 
 " start NERDTree when vim starts, dont use vim . to start vim though
 " also swp to non-NERDTree window
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * wincmd p
-" set bind for NERDTree
+
+" Mappings
 map <C-n> :NERDTreeToggle<CR>
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " Close vim if only open window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
