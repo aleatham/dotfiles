@@ -1,0 +1,46 @@
+#!/bin/zsh
+# If you come from bash you might have to change your $PATH.
+export PATH=$PATH:
+
+typeset -U path
+
+PATH="/usr/local/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/.bin:$PATH"
+GPG_TTY=$(tty)
+export GPG_TTY PATH
+
+# colored man pages
+man() {
+  LESS_TERMCAP_md=$'\e[01;31m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[01;44;33m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[01;32m' \
+  command man "$@"
+}
+
+# display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# Path to your oh-my-zsh installation.
+# export ZSH=/Users/aus/.oh-my-zsh
+# source $ZSH/oh-my-zsh.sh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# User configuration
+DEFAULT_USER="aus"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export PURE_PROMPT_SYMBOL=∴
+
