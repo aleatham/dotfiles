@@ -23,8 +23,8 @@ man() {
 COMPLETION_WAITING_DOTS="true"
 
 # export ZSH=/Users/aus/.oh-my-zsh
-# source $ZSH/oh-my-zsh.sh
-
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -33,10 +33,9 @@ ZSH_THEME=""
 # User configuration
 DEFAULT_USER="aus"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 autoload -U promptinit; promptinit
 prompt pure
-  
 export PURE_PROMPT_SYMBOL=∴
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
