@@ -54,6 +54,8 @@ else # macOS `ls`
 	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 

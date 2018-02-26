@@ -38,6 +38,7 @@ syntax on
 let mapleader=","
 let g:rspec_runner = "os_x_iterm"
 let NERDTreeShowHidden=1
+let g:fanfingtastic_ignorecase=1
 
 " start NERDTree when vim starts, dont use vim . to start vim though
 " also swp to non-NERDTree window
