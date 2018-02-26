@@ -3,4 +3,5 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'thoughtbot/vim-rspec'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dahu/vim-fanfingtastic'
+Plug 'ngmy/vim-rubocop'
 
