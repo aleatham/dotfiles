@@ -49,6 +49,7 @@ autocmd VimEnter * wincmd p
 
 " Mappings
 map <C-n> :NERDTreeToggle<CR>
+" map <C-p> :FZF
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
