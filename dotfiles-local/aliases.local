@@ -41,6 +41,7 @@ alias -- -="cd -"
 # Shortcuts
 alias dot="cd ~/dotfiles/dotfiles-local"
 alias hp="cd ~/wwwroot/work/hp"
+alias mim="cd ~/wwwroot/work/money-in-motion"
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
