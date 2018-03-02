@@ -41,6 +41,12 @@ let mapleader=","
 let g:rspec_runner = "os_x_iterm"
 let NERDTreeShowHidden=1
 let g:fanfingtastic_ignorecase=1
+let g:ackprg='ag --vimgrep --smart-case'
+let g:ack_apply_qmappings=1
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 " let g:ctrlp_show_hidden = 1
 " let g:ctrlp_max_files=0
 " let g:ctrlp_max_depth=40
@@ -53,7 +59,9 @@ autocmd VimEnter * wincmd p
 
 " Mappings
 noremap <C-n> :NERDTreeToggle<CR>
-noremap <C-p> :FZF<CR>
+noremap <C-p> :ProjectFiles<CR>
+" this oen isnt working yet :(
+" noremap <Leader>f :Ack <cword><cr>
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -66,3 +74,38 @@ noremap : ;
 " Close vim if only open window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" follow symlinked file
+function! FollowSymlink()
+  let current_file = expand('%:p')
+  " check if file type is a symlink
+  if getftype(current_file) == 'link'
+    " if it is a symlink resolve to the actual file path
+    "   and open the actual file
+    let actual_file = resolve(current_file)
+    silent! execute 'file ' . actual_file
+  end
+endfunction
+
+" set working directory to git project root
+" or directory of current file if not git project
+function! SetProjectRoot()
+  " default to the current file's directory
+  lcd %:p:h
+  let git_dir = system("git rev-parse --show-toplevel")
+  " See if the command output starts with 'fatal' (if it does, not in a git repo)
+  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+  " if git project, change local directory to git project root
+  if empty(is_not_git_dir)
+    lcd `=git_dir`
+  endif
+endfunction
+
+" netrw: follow symlink and set working directory
+autocmd CursorMoved silent *
+  " short circuit for non-netrw files
+  \ if &filetype == 'netrw' |
+  \   call FollowSymlink() |
+  \   call SetProjectRoot() |
+  \ endif
+
+command! ProjectFiles exe "Files " . systemlist('git rev-parse --show-toplevel')[0]

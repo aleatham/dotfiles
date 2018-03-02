@@ -186,4 +186,5 @@ alias path='echo -e ${PATH//:/\\n}'
 # Heroku
 alias hrcp='heroku run rails console -a human-connections'
 alias hpgp='heroku pg:psql -a human-connections'
-alias v='vim $(fzf-tmux)'
+alias vim='vim $(fzf-tmux)'
+
