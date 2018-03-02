@@ -13,6 +13,7 @@ let g:solarized_termtrans=1
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+set rtp+=/usr/local/opt/fzf
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -40,21 +41,25 @@ let mapleader=","
 let g:rspec_runner = "os_x_iterm"
 let NERDTreeShowHidden=1
 let g:fanfingtastic_ignorecase=1
+" let g:ctrlp_show_hidden = 1
+" let g:ctrlp_max_files=0
+" let g:ctrlp_max_depth=40
 
 " start NERDTree when vim starts, dont use vim . to start vim though
 " also swp to non-NERDTree window
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * wincmd p
 
 " Mappings
-map <C-n> :NERDTreeToggle<CR>
-" map <C-p> :FZF
+noremap <C-n> :NERDTreeToggle<CR>
+noremap <C-p> :FZF<CR>
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
 noremap ; :
 noremap : ;
 
