@@ -1,5 +1,4 @@
 #!/bin/zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # If you come from bash you might have to change your $PATH.
 export PATH=$PATH:
 export FZF_DEFAULT_OPS="--extended"
@@ -43,3 +42,4 @@ export PURE_PROMPT_SYMBOL=∴
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
