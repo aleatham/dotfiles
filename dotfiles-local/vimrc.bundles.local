@@ -1,10 +1,10 @@
+UnPlug 'ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'thoughtbot/vim-rspec'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'ngmy/vim-rubocop'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
-" UnPlug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
