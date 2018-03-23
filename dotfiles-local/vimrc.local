@@ -29,6 +29,9 @@ set autochdir                   "allow :e to create files in current dir
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
+set ttyfast
+set lazyredraw
+set noesckeys
 
 "turn on syntax highlighting
 syntax on
@@ -60,8 +63,8 @@ autocmd VimEnter * wincmd p
 " Mappings
 noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-p> :ProjectFiles<CR>
-" this oen isnt working yet :(
-" noremap <Leader>f :Ack <cword><cr>
+map <silent> <Leader>b :Buffers<CR>
+map <C-F> :Ack <Space>
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
