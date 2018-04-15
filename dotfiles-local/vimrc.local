@@ -5,7 +5,9 @@ let g:solarized_termtrans=1
 
 " ================ General Config ====================
 
-:set relativenumber
+set number
+set relativenumber
+set numberwidth=5
 
 :augroup numbertoggle
 :  autocmd!
@@ -18,11 +20,20 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
+set showmatch
+set hlsearch                    "highlight searched terms
+set incsearch                   "incremental search
+set ignorecase                  "ignore case when searching
+set smartcase                   "ignore ignorecase when search pattern contains uppercase chars
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set autoindent                  "Always set autoindenting on
+set smartindent                 "Set smart indenting
 set ignorecase                  "ignore case for searches
+set wildmenu                    "visual autocomplete for command menu
 set autochdir                   "allow :e to create files in current dir
+set laststatus=2                "force the display of the status line. * vim-airline "
 :highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " This makes vim act like all other editors, buffers can
@@ -60,7 +71,29 @@ autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * wincmd p
 
+
+""" PLUGIN CONFIGURATION
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = '·'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="solarized"
+
+" ale configuration
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✦'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+
 " Mappings
+" \f apply ALE fixers
+nnoremap <silent> <leader>f :ALEFix<cr>
 noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-p> :ProjectFiles<CR>
 map <silent> <Leader>b :Buffers<CR>

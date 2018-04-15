@@ -4,9 +4,15 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'thoughtbot/vim-rspec'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dahu/vim-fanfingtastic'
-Plug 'ngmy/vim-rubocop'
+Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Townk/vim-autoclose'
 
+" airline
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" MISC
+Plug 'google/vim-searchindex'
