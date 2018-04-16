@@ -18,6 +18,7 @@ set numberwidth=5
 set rtp+=/usr/local/opt/fzf
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
+set cursorline                  "Highlight the cursor line
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set showmatch
@@ -34,6 +35,7 @@ set ignorecase                  "ignore case for searches
 set wildmenu                    "visual autocomplete for command menu
 set autochdir                   "allow :e to create files in current dir
 set laststatus=2                "force the display of the status line. * vim-airline "
+set vb t_vb=                    "disable screen flashing and audio bell
 :highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " This makes vim act like all other editors, buffers can
@@ -90,13 +92,15 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+let g:ale_fix_on_save = 1
 
 " Mappings
 " \f apply ALE fixers
-nnoremap <silent> <leader>f :ALEFix<cr>
+nmap <Leader>f :ALEFix<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-p> :ProjectFiles<CR>
 map <silent> <Leader>b :Buffers<CR>
+nnoremap <C-h> :%s/:\([^=,'"]*\) =>/\1:/g
 map <C-F> :Ack <Space>
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
