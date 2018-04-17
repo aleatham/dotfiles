@@ -8,6 +8,7 @@ let g:solarized_termtrans=1
 set number
 set relativenumber
 set numberwidth=5
+set timeoutlen=300
 
 :augroup numbertoggle
 :  autocmd!
@@ -84,15 +85,17 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = '·'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="solarized"
+let g:one_allow_italics=1
 
 " ale configuration
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✦'
+let g:ale_lint_on_enter = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
-let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es6'
+" let g:ale_fix_on_save = 1
 
 " Mappings
 " \f apply ALE fixers
