@@ -104,6 +104,7 @@ noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-p> :ProjectFiles<CR>
 map <silent> <Leader>b :Buffers<CR>
 nnoremap <C-h> :%s/:\([^=,'"]*\) =>/\1:/g
+nnoremap <C-,> :'<,'>s/\n/, /
 map <C-F> :Ack <Space>
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
