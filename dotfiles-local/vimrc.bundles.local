@@ -3,11 +3,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'thoughtbot/vim-rspec'
 Plug 'altercation/vim-colors-solarized'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Townk/vim-autoclose'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " airline
 Plug 'bling/vim-airline'

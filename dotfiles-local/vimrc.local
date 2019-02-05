@@ -1,6 +1,7 @@
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
+" colorscheme cobalt2
 let g:solarized_termtrans=1
 
 " ================ General Config ====================
@@ -60,6 +61,8 @@ let NERDTreeShowHidden=1
 let g:fanfingtastic_ignorecase=1
 let g:ackprg='ag --vimgrep --smart-case'
 let g:ack_apply_qmappings=1
+" map <cr> to select highlighted supertab completion
+let g:SuperTabCrMapping = 1
 cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
@@ -92,17 +95,25 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✦'
 let g:ale_lint_on_enter = 0
 let g:airline#extensions#ale#enabled = 1
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['prettier'],
+      \ 'ruby': ['rubocop'],
+      \ 'R': ['prettier'],
+      \}
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es6'
-" let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_fix_on_save = 1
 
+"
 " Mappings
 " \f apply ALE fixers
 nmap <Leader>f :ALEFix<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-p> :ProjectFiles<CR>
-map <silent> <Leader>b :Buffers<CR>
+noremap <C-c> :'<,'>w !pbcopy<CR><CR>
+noremap <C-b> :Buffers<CR>
 nnoremap <C-h> :%s/:\([^=,'"]*\) =>/\1:/g
 nnoremap <C-,> :'<,'>s/\n/, /
 map <C-F> :Ack <Space>

@@ -39,8 +39,8 @@ alias -- -="cd -"
 
 # Shortcuts
 alias dot="cd ~/dotfiles/dotfiles-local"
-alias hp="cd ~/wwwroot/work/hp"
-alias mim="cd ~/wwwroot/work/money-in-motion"
+alias hp="cd ~/projects/work/hp"
+alias mim="cd ~/projects/work/money-in-motion"
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
@@ -189,3 +189,15 @@ alias hpgp='heroku pg:psql -a human-connections'
 alias vim='vim $(fzf-tmux)'
 alias v='vim'
 alias space='open /usr/local/Cellar/emacs-plus/26.1/Emacs.app'
+alias pt='heroku addons:open papertrail -a human-connections'
+alias papertrail='heroku addons:open papertrail -a human-connections'
+alias scheduler='heroku addons:open scheduler -a human-connections'
+alias hpdiff='heroku pipelines:diff -a humanpredictions-staging'
+alias hppromote='heroku pipelines:promote -a humanpredictions-staging'
+alias mimdiff='heroku pipelines:diff -a money-in-motion-staging'
+alias mimpromote='heroku pipelines:promote -a money-in-motion-staging'
+alias hpconfig='heroku config -a human-connections'
+alias hpconfigset='heroku config:set -a human-connections'
+alias hpconfigunset='heroku config:unset -a human-connections'
+alias hprake='heroku rake -a human-connections'
+alias promoteall='hppromote && mimpromote'
