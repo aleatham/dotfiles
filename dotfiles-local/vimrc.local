@@ -97,13 +97,10 @@ let g:ale_lint_on_enter = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'javascript': ['prettier'],
-      \ 'ruby': ['rubocop'],
-      \ 'R': ['prettier'],
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'ruby': ['rubocop']
       \}
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es6'
 let g:ale_sign_column_always = 1
-let g:ale_javascript_eslint_use_global = 1
 let g:ale_fix_on_save = 1
 
 "
