@@ -20,6 +20,8 @@ set timeoutlen=300
 set rtp+=/usr/local/opt/fzf
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
+set synmaxcol=128               "limit syntax highlighting
+syntax sync minlines=256
 set cursorline                  "Highlight the cursor line
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
@@ -37,6 +39,7 @@ set ignorecase                  "ignore case for searches
 set wildmenu                    "visual autocomplete for command menu
 set autochdir                   "allow :e to create files in current dir
 set laststatus=2                "force the display of the status line. * vim-airline "
+set regexpengine=1
 set vb t_vb=                    "disable screen flashing and audio bell
 :highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
@@ -94,7 +97,9 @@ let g:one_allow_italics=1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✦'
 let g:ale_lint_on_enter = 0
+let g:ale_cache_executable_check_failures = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_virtualenv_dir_names = []
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'javascript': ['prettier', 'eslint'],
