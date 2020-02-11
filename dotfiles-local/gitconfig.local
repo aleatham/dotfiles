@@ -24,6 +24,7 @@
   stash-all       = stash save --include-untracked
 [branch]
   autosetupmerge  = true
+  sort            =-committerdate
 [color]
   diff            = auto
   status          = auto
@@ -50,4 +51,3 @@
 [gpg]
   program = gpg2
   program = /usr/local/bin/gpg
-

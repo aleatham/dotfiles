@@ -126,6 +126,7 @@ let g:ale_virtualenv_dir_names = []
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascriptreact': ['prettier', 'eslint'],
       \ 'ruby': ['rubocop']
       \}
 let g:ale_sign_column_always = 1
@@ -149,7 +150,6 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 noremap ; :
-noremap : ;
 
 " Close vim if only open window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

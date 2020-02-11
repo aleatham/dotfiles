@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Townk/vim-autoclose'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'ecomba/vim-ruby-refactoring'
 
 " airline
 Plug 'bling/vim-airline'
